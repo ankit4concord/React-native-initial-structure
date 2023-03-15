@@ -1,0 +1,15 @@
+export default {
+  black: "#000000",
+  white: "#ffffff",
+  lightgray: "#808080",
+  darkGreen: "#007694",
+  orange: "#FFB600",
+  darkBlue: "#003764",
+  lightGray: "#717271",
+  appBlack: "#070401",
+  transparentBlack: "rgba(0,0,0,0.3)",
+  linkColor: "#095C9C",
+  red: "#C54C4C",
+  pink: "#FF5959",
+  yellow: "#FFB600",
+};
