@@ -61,7 +61,7 @@ async function postRequest(URL: string, payload: object) {
   }
 }
 
-const setAuthorizationToken = async (token: string) => {
+const setAuthorizationToken = async (token: string | null) => {
   if (token) {
     await AsyncStorage.setItem("Authorization", token);
     axiosClient.defaults.headers.authorization = `Bearer ${token}`;
