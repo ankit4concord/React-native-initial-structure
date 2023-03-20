@@ -1,16 +1,16 @@
-import { Button, Image, Text, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { Button, Image, Text, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
-import localImages from "../../utils/localImages";
-import { pushItems } from "../../store/Slices/demo";
-import { useEffect } from "react";
+import localImages from '../../utils/localImages';
+import { pushItems } from '../../store/Slices/demo';
+import { useEffect } from 'react';
 
 const Home = () => {
   const dispatch = useDispatch();
   const items = useSelector((store: any) => store.demo.items);
 
   useEffect(() => {
-    console.log(items, "items");
+    console.log(items, 'items');
   }, [items]);
 
   return (
@@ -19,7 +19,7 @@ const Home = () => {
       <Text>Demo page</Text>
       <Button
         title="Check redux"
-        onPress={() => dispatch(pushItems("ankit"))}
+        onPress={() => dispatch(pushItems('ankit'))}
       />
     </View>
   );

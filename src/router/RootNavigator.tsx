@@ -1,9 +1,10 @@
-import PrivateRoutes from "./PrivateRoutes";
-import PublicRoutes from "./PublicRoutes";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import PrivateRoutes from './PrivateRoutes';
+import PublicRoutes from './PublicRoutes';
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Root = createNativeStackNavigator();
-const RootNavigator = () => {
+function RootNavigator() {
   return (
     <Root.Navigator>
       <Root.Screen
@@ -18,6 +19,6 @@ const RootNavigator = () => {
       />
     </Root.Navigator>
   );
-};
+}
 
 export default RootNavigator;
