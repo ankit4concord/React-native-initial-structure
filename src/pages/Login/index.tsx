@@ -7,19 +7,16 @@ import { useEffect } from 'react';
 import useEnhancer from './Enhancer';
 
 const Login = (props: any) => {
-  const { navigation } = props;
-  const { checkLogin } = useEnhancer();
+  const { checkLogin } = useEnhancer(props);
 
   useEffect(() => {
     setAuthorizationToken('Hello123');
-    checkLogin();
   }, []);
 
   return (
     <>
-      <Button title="Login" onPress={() => navigation.navigate('Private')} />
-
-      <Text>{Config.API_URL}</Text>
+      <Button title="Login" onPress={() => checkLogin()} />
+      <Text>Current API_URL is {Config.API_URL}</Text>
     </>
   );
 };

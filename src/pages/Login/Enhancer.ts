@@ -2,7 +2,8 @@ import { postRequest, setAuthorizationToken } from '../../utils/axios';
 
 import api_endpoints from '../../utils/api_endpoints';
 
-const useEnhancer = () => {
+const useEnhancer = (props: any) => {
+  const { navigation } = props;
   const checkLogin = async () => {
     const loginData = {
       inputParams: {
@@ -14,7 +15,10 @@ const useEnhancer = () => {
       },
     };
     const response = await postRequest(api_endpoints.userLogin, loginData);
-    console.log(response?.data, 'response of enhancer');
+    console.log(response, 'response of enhancer');
+    if (response?.success) {
+      navigation.navigate('Private');
+    }
   };
 
   return {
