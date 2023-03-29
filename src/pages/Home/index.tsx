@@ -12,7 +12,6 @@ const Home = (props: any) => {
 
   useEffect(() => {
     console.log(items, 'items');
-    navigation.navigate('Login');
   }, [items]);
 
   return (
@@ -23,6 +22,7 @@ const Home = (props: any) => {
         title="Check redux"
         onPress={() => dispatch(pushItems('ankit'))}
       />
+      <Button title="Logout" onPress={() => navigation.navigate('Login')} />
     </View>
   );
 };
