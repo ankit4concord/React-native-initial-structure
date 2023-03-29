@@ -8,7 +8,13 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "android:dev": "react-native run-android --variant=devdebug",
+    "android:dev-release": "react-native run-android --variant=devrelease",
+    "android:qa": "react-native run-android --variant=qadebug",
+    "android:qa-release": "react-native run-android --variant=qarelease",
+    "android:uat": "react-native run-android --variant=uatdebug",
+    "android:uat-release": "react-native run-android --variant=uatrelease"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.11",
@@ -18,6 +24,7 @@
     "axios": "^1.3.4",
     "react": "18.1.0",
     "react-native": "0.70.6",
+    "react-native-config": "^1.5.0",
     "react-native-safe-area-context": "^3.4.1",
     "react-native-screens": "^3.18.2",
     "react-redux": "^8.0.5"
