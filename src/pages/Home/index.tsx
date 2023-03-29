@@ -1,8 +1,8 @@
 import { Button, Image, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
-import localImages from '../../utils/localImages';
-import { pushItems } from '../../store/Slices/demo';
+import localImages from 'utils/localImages';
+import { pushItems } from 'src/store/Slices/demo';
 import { useEffect } from 'react';
 
 const Home = (props: any) => {

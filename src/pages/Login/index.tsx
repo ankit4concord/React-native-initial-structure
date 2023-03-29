@@ -2,7 +2,7 @@ import { Button, Text } from 'react-native';
 
 import Config from 'react-native-config';
 import React from 'react';
-import { setAuthorizationToken } from '../../utils/axios';
+import { setAuthorizationToken } from 'utils/axios';
 import { useEffect } from 'react';
 import useEnhancer from './Enhancer';
 
