@@ -5,12 +5,14 @@ import localImages from '../../utils/localImages';
 import { pushItems } from '../../store/Slices/demo';
 import { useEffect } from 'react';
 
-const Home = () => {
+const Home = (props: any) => {
+  const { navigation } = props;
   const dispatch = useDispatch();
   const items = useSelector((store: any) => store.demo.items);
 
   useEffect(() => {
     console.log(items, 'items');
+    navigation.navigate('Login');
   }, [items]);
 
   return (

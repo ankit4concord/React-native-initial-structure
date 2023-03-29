@@ -1,4 +1,16 @@
 apply plugin: "com.android.application"
+apply plugin: "com.android.application"
+
+project.ext.envConfigFiles = [
+   devdebug: ".env.dev",
+   devrelease: ".env.dev",
+   qarelease: ".env.qa",
+   qadebug: ".env.qa",
+   uatrelease: ".env.uat",
+   uatdebug: ".env.uat"
+ ]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -221,6 +233,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            matchingFallbacks = ['debug', 'release']
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -230,6 +243,16 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+
+    flavorDimensions "default"
+    productFlavors {
+        dev {}
+        qa {
+        // We can have build-specific configurations here. Like using applicationIdSuffix to create different package name (ex. ".staging")
+        }
+        uat {}
+    }
+
 
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
