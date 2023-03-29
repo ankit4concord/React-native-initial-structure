@@ -1,10 +1,10 @@
 import axios, { AxiosInstance } from 'axios';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import constants from './constants';
+import Config from 'react-native-config';
 
 export const axiosClient: AxiosInstance = axios.create({
-  baseURL: constants.API_BASE_URL,
+  baseURL: Config.API_URL,
   timeout: 60000,
   headers: {
     'Access-Control-Allow-Origin': '*',
