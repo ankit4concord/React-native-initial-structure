@@ -1,5 +1,5 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect } from 'react';
+import { Text } from 'react-native';
 import { useSelector } from 'react-redux';
 
 const Splash = (props: any) => {
@@ -17,7 +17,7 @@ const Splash = (props: any) => {
     checkAuthorization();
   }, [token]);
 
-  return <></>;
+  return <Text>Loading...</Text>;
 };
 
 export default Splash;

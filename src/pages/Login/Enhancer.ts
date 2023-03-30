@@ -1,4 +1,4 @@
-import { postRequest } from 'utils/axios';
+import { postRequest, setAuthorizationToken } from 'utils/axios';
 
 import api_endpoints from 'utils/api_endpoints';
 import { LoginData } from 'src/types/auth';
@@ -18,11 +18,16 @@ const useEnhancer = (props: any) => {
       client_secret: '6ld8Q~ijsqQEqb.J7DFYR9Qi1HvyB21ookaM9cK7',
     };
 
-    const response = await postRequest(api_endpoints.getJWT, temploginData, {
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    });
+    const response: any = await postRequest(
+      api_endpoints.getJWT,
+      temploginData,
+      {
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      },
+    );
 
     if (response?.token_type === 'Bearer') {
+      setAuthorizationToken(response?.access_token);
       dispatch(setUserToken(response?.access_token));
     }
   };

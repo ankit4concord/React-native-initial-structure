@@ -5,6 +5,7 @@ import localImages from 'utils/localImages';
 import { pushItems } from 'src/store/Slices/demo';
 import { useEffect } from 'react';
 import { setUserToken } from 'src/store/Slices/authSlice';
+import { removeAuthorizationToken } from 'utils/axios';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,13 @@ const Home = () => {
         title="Check redux"
         onPress={() => dispatch(pushItems('ankit'))}
       />
-      <Button title="Logout" onPress={() => dispatch(setUserToken(null))} />
+      <Button
+        title="Logout"
+        onPress={() => {
+          dispatch(setUserToken(null));
+          removeAuthorizationToken();
+        }}
+      />
     </View>
   );
 };

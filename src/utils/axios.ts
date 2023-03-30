@@ -52,7 +52,11 @@ async function getRequest(URL: string) {
   }
 }
 
-async function postRequest(URL: string, payload: object, additionalHeaders?: object) {
+async function postRequest(
+  URL: string,
+  payload: object,
+  additionalHeaders?: object,
+) {
   try {
     const response = await axiosClient.post(URL, payload, additionalHeaders);
     return response;
@@ -61,6 +65,24 @@ async function postRequest(URL: string, payload: object, additionalHeaders?: obj
   }
 }
 
-export { getRequest, postRequest };
+const setAuthorizationToken = async (token: string | null) => {
+  if (token) {
+    await AsyncStorage.setItem('Authorization', token);
+    axiosClient.defaults.headers.authorization = `Bearer ${token}`;
+  }
+};
+
+const removeAuthorizationToken = async (token: string | null) => {
+  if (token) {
+    await AsyncStorage.removeItem('Authorization');
+  }
+};
+
+export {
+  getRequest,
+  postRequest,
+  setAuthorizationToken,
+  removeAuthorizationToken,
+};
 
 export default axiosClient;
