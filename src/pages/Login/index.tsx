@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import useEnhancer from './Enhancer';
 import Input from 'components/common/Input';
 import { LoginData } from 'src/types/auth';
+import DataWedgeScan from '../../utils/DataWedgeScan';
 
 const Login = (props: any) => {
   const { checkLogin } = useEnhancer(props);
@@ -11,10 +12,13 @@ const Login = (props: any) => {
     username: '',
     password: '',
   });
-
+  function getScanData(val: any){
+    console.log(val);
+  }
   return (
     <>
       <View style={styles.LoginForm}>
+      <DataWedgeScan sendScanData={getScanData}/>
         <Text style={{ color: 'black', fontSize: 30 }}>CCM LOGIN</Text>
         <Input
           placeholder="Enter Username"
@@ -39,9 +43,7 @@ const Login = (props: any) => {
     </>
   );
 };
-
 const styles = StyleSheet.create({
   LoginForm: { marginTop: 50, padding: 30 },
 });
-
 export default Login;
