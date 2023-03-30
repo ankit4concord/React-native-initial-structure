@@ -1,12 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const Splash = (props: any) => {
   const { navigation } = props;
+  const token = useSelector((store: any) => store.Auth.user_token);
   const checkAuthorization = async () => {
-    const basicAuth = await AsyncStorage.getItem('Authorization');
-    console.log(basicAuth);
-    if (basicAuth && basicAuth !== null) {
+    if (token !== null) {
       navigation.navigate('Private');
     } else {
       navigation.navigate('Login');
@@ -15,7 +15,7 @@ const Splash = (props: any) => {
 
   useEffect(() => {
     checkAuthorization();
-  }, []);
+  }, [token]);
 
   return <></>;
 };

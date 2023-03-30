@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import localImages from 'utils/localImages';
 import { pushItems } from 'src/store/Slices/demo';
 import { useEffect } from 'react';
+import { setUserToken } from 'src/store/Slices/authSlice';
 
-const Home = (props: any) => {
-  const { navigation } = props;
+const Home = () => {
   const dispatch = useDispatch();
   const items = useSelector((store: any) => store.demo.items);
 
@@ -22,7 +22,7 @@ const Home = (props: any) => {
         title="Check redux"
         onPress={() => dispatch(pushItems('ankit'))}
       />
-      <Button title="Logout" onPress={() => navigation.navigate('Login')} />
+      <Button title="Logout" onPress={() => dispatch(setUserToken(null))} />
     </View>
   );
 };

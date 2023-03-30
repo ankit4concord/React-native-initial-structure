@@ -1,24 +1,47 @@
-import { Button, Text } from 'react-native';
+import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import Config from 'react-native-config';
-import React from 'react';
-import { setAuthorizationToken } from 'utils/axios';
-import { useEffect } from 'react';
+import React, { useState } from 'react';
 import useEnhancer from './Enhancer';
+import Input from 'components/common/Input';
+import { LoginData } from 'src/types/auth';
 
 const Login = (props: any) => {
   const { checkLogin } = useEnhancer(props);
-
-  useEffect(() => {
-    setAuthorizationToken('Hello123');
-  }, []);
+  const [loginData, setLoginData] = useState<LoginData>({
+    username: '',
+    password: '',
+  });
 
   return (
     <>
-      <Button title="Login" onPress={() => checkLogin()} />
-      <Text>Current API_URL is {Config.API_URL}</Text>
+      <View style={styles.LoginForm}>
+        <Text style={{ color: 'black', fontSize: 30 }}>CCM LOGIN</Text>
+        <Input
+          placeholder="Enter Username"
+          value={loginData?.username}
+          onChangeText={(username: string) =>
+            setLoginData({ ...loginData, username: username })
+          }
+        />
+        <Input
+          placeholder="Enter Password"
+          value={loginData?.password}
+          onChangeText={(password: string) =>
+            setLoginData({ ...loginData, password: password })
+          }
+        />
+        <View style={{ padding: 10 }}>
+          <TouchableOpacity>
+            <Button title="Login" onPress={() => checkLogin(loginData)} />
+          </TouchableOpacity>
+        </View>
+      </View>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  LoginForm: { marginTop: 50, padding: 30 },
+});
 
 export default Login;
