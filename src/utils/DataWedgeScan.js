@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
 import {
   StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TouchableHighlight,
-
 } from 'react-native';
-import {Button} from 'react-native';
 import DataWedgeIntents from 'react-native-datawedge-intents';
 import {DeviceEventEmitter} from 'react-native';
 
@@ -204,7 +198,7 @@ export default class DataWedgeScan extends Component {
       },
       APP_LIST: [
         {
-          PACKAGE_NAME: 'com.intialsetupreactnative',
+          PACKAGE_NAME: 'com.intialsetupreactnative', // Update the project package name 
           ACTIVITY_LIST: ['*'],
         },
       ],
@@ -282,5 +276,4 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
   },
-  
 });
