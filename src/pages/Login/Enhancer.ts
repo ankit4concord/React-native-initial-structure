@@ -24,6 +24,7 @@ const useEnhancer = (props: any) => {
       {
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
       },
+      'https://login.microsoftonline.com',
     );
 
     if (response?.token_type === 'Bearer') {

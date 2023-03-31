@@ -43,8 +43,15 @@ axiosClient.interceptors.response.use(
   },
 );
 
-async function getRequest(URL: string) {
+async function getRequest(URL: string, baseURL?: string) {
   try {
+    if (baseURL) {
+      // In case baseURL is different
+      axiosClient.defaults.baseURL = baseURL;
+      setTimeout(() => {
+        axiosClient.defaults.baseURL = Config.API_URL; // to set back baseURL to original
+      }, 10);
+    }
     const response = await axiosClient.get(URL);
     return response;
   } catch (error) {
@@ -56,8 +63,16 @@ async function postRequest(
   URL: string,
   payload: object,
   additionalHeaders?: object,
+  baseURL?: string,
 ) {
   try {
+    if (baseURL) {
+      // In case baseURL is different
+      axiosClient.defaults.baseURL = baseURL;
+      setTimeout(() => {
+        axiosClient.defaults.baseURL = Config.API_URL; // to set back baseURL to original
+      }, 10);
+    }
     const response = await axiosClient.post(URL, payload, additionalHeaders);
     return response;
   } catch (error) {
@@ -72,10 +87,8 @@ const setAuthorizationToken = async (token: string | null) => {
   }
 };
 
-const removeAuthorizationToken = async (token: string | null) => {
-  if (token) {
-    await AsyncStorage.removeItem('Authorization');
-  }
+const removeAuthorizationToken = async () => {
+  await AsyncStorage.removeItem('Authorization');
 };
 
 export {
