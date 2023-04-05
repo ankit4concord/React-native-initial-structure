@@ -5,15 +5,17 @@ interface InputProps {
   placeholder: string;
   value: string;
   onChangeText: any;
+  onBlur?: any;
 }
 
-const Input = ({ placeholder, value, onChangeText }: InputProps) => {
+const Input = ({ placeholder, value, onChangeText, onBlur }: InputProps) => {
   return (
     <TextInput
       style={styles.input}
       placeholder={placeholder}
       value={value}
       onChangeText={onChangeText}
+      onBlur={onBlur}
     />
   );
 };

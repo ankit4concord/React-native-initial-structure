@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { setUserToken } from 'src/store/Slices/authSlice';
 import { removeAuthorizationToken } from 'utils/axios';
 import useRootEnhancer from '../rootEnhancer';
+import CustomBtn from 'components/common/Button';
 
 const Home = () => {
   const dispatch = useDispatch();
