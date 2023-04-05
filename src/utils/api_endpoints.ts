@@ -5,11 +5,12 @@ export default {
   listWarehouse: '/api/list/warehouse',
   getVendorList:
     '/mocking/api/v1/links/33ac80e8-da9d-4752-a9dc-fed66a0178fe/list/vendor',
-  validatePallate: '/pallet/validate',
+  validatePallate: '/mocking/api/v1/links/33ac80e8-da9d-4752-a9dc-fed66a0178fe/pallet/validate',
   deletePallate:
     '/mocking/api/v1/links/33ac80e8-da9d-4752-a9dc-fed66a0178fe/pallet/deleted',
   getStockName: '/pallet/stock-name',
   updateS2C: '/pallet/update-s2c',
   getUPCDetails: '/upc-details',
   addItemToPallate: '/pallet/add-item',
+  updatePallate: '/mocking/api/v1/links/33ac80e8-da9d-4752-a9dc-fed66a0178fe/pallet/update',
 };

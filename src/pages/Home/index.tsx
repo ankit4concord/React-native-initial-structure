@@ -12,7 +12,7 @@ import CustomBtn from 'components/common/Button';
 const Home = () => {
   const dispatch = useDispatch();
   const items = useSelector((store: any) => store.demo.items);
-  const { getWarehouseList, getVendorList, deletePallate } = useRootEnhancer();
+  const { getWarehouseList, getVendorList, deletePallate, updatePallet } = useRootEnhancer();
 
   useEffect(() => {
     console.log(items, 'items');
@@ -51,13 +51,12 @@ const Home = () => {
           deletePallate();
         }}
       />
-      {/* <CustomBtn
-        label="Delete Pallat"
+      <Button
+        title="Update Pallet"
         onPress={() => {
-          deletePallate();
+          updatePallet();
         }}
-        buttonColor={'grey'}
-      /> */}
+      />
     </ScrollView>
   );
 };

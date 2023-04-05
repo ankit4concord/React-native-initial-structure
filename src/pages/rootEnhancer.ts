@@ -38,10 +38,32 @@ const useRootEnhancer = () => {
     }
   };
 
+  const updatePallet = async () => {
+    let palletData = {
+      inputParams: {
+        palletID: 23472213,
+		drProcess: "Y" ,
+		drPresort: "N",
+		dispProcTeam: 7100,
+		uesrName: "KARTHIK.BEDDU"
+      },
+    };
+    const response: any = await postRequest(
+      api_endpoints.updatePallate,
+      palletData,
+    );
+
+    if (response?.success) {
+      console.log(response?.data, 'updated result');
+    }
+  };
+
+  
   return {
     getWarehouseList,
     getVendorList,
     deletePallate,
+    updatePallet,
   };
 };
 export default useRootEnhancer;
