@@ -10,7 +10,7 @@ const Login = (props: any) => {
   return (
     <>
       <View style={styles.LoginForm}>
-        <Text style={{ color: 'black', fontSize: 30 }}>CCM LOGIN</Text>
+        <Text style={styles.LoginFormHeading}>CCM LOGIN</Text>
         <LoginForm {...{ checkLogin }} />
       </View>
     </>
@@ -19,6 +19,7 @@ const Login = (props: any) => {
 
 const styles = StyleSheet.create({
   LoginForm: { marginTop: 50, padding: 30 },
+  LoginFormHeading: { color: 'black', fontSize: 30 },
 });
 
 export default Login;
