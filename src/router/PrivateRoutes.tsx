@@ -1,3 +1,4 @@
+import Target_M from 'src/pages/Target_M';
 import Home from '../pages/Home';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -9,6 +10,11 @@ export default function PrivateRoutes() {
       <Private.Screen
         name="Home"
         component={Home}
+        options={{ headerShown: false }}
+      />
+      <Private.Screen
+        name="Target_M"
+        component={Target_M}
         options={{ headerShown: false }}
       />
     </Private.Navigator>

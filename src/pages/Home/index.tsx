@@ -7,12 +7,12 @@ import { useEffect } from 'react';
 import { setUserToken } from 'src/store/Slices/authSlice';
 import { removeAuthorizationToken } from 'utils/axios';
 import useRootEnhancer from '../rootEnhancer';
-import CustomBtn from 'components/common/Button';
 
-const Home = () => {
+const Home = ({ navigation }: any) => {
   const dispatch = useDispatch();
   const items = useSelector((store: any) => store.demo.items);
-  const { getWarehouseList, getVendorList, deletePallate, updatePallet } = useRootEnhancer();
+  const { getWarehouseList, getVendorList, deletePallate, updatePallet } =
+    useRootEnhancer();
 
   useEffect(() => {
     console.log(items, 'items');
@@ -25,6 +25,12 @@ const Home = () => {
       <Button
         title="Check redux"
         onPress={() => dispatch(pushItems('ankit'))}
+      />
+      <Button
+        title="Target_M"
+        onPress={() => {
+          navigation.navigate('Target_M');
+        }}
       />
       <Button
         title="Logout"

@@ -2,7 +2,7 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import Button from './Button';
 import colors from 'utils/colors';
 
-const NotifiyModal = (props) => {
+const NotifiyModal = (props: any) => {
   const {
     title,
     subtitle,
